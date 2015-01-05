@@ -11,15 +11,15 @@ def collision(o1,o2):
 		o1_rectX = o1.rect.x
 		o1_rectY = o1.rect.y
 		o2_rectX = o2.rect.x
-		o2_rectY = o2.rect.y
+		o2_rectY = o2.rect.y + 10
 	                
 		if (o2_rectX >= o1_rectX and o2_rectX <= o1_rectX  + o1_width and		
-			o2_rectY >= o1_rectY and o2_rectY <= o1_rectY  + o1_hight):		
+			o2_rectY > o1_rectY and o2_rectY < o1_rectY  + o1_hight):		
 			return True
 
 class Ball():
 	def __init__(self):
-		self.image = pygame.image.load("../img/ball.bmp")
+		self.image = pygame.image.load("./img/ball.bmp")
 		self.image = pygame.transform.scale(self.image,(10,10)) 
 		self.rect = self.image.get_rect() 
 		self.rect.x = 100
@@ -54,7 +54,7 @@ class Ball():
 
 class Panel():
 	def __init__(self):
-		self.image = pygame.image.load("../img/rec.bmp")
+		self.image = pygame.image.load("./img/rec.bmp")
 		self.image = pygame.transform.scale(self.image,(100,10)) 
 		self.rect = self.image.get_rect() 
 		self.rect.x = 100
@@ -82,7 +82,7 @@ class Blocksprite(pygame.sprite.Sprite):
 	def __init__(self,location):
 		pygame.sprite.Sprite.__init__(self,blocks)
 	
-                self.image = pygame.image.load("../img/block1.bmp")
+                self.image = pygame.image.load("./img/block1.bmp")
 		self.image = pygame.transform.scale(self.image,(50,50)) 
 		self.rect = self.image.get_rect() 
 		self.rect.topleft = location 
@@ -123,6 +123,7 @@ class Block_breaker:
 			blocks.draw(self.screen)
 
 			pygame.display.flip()
+                        pygame.time.wait(10)
 
 	
 def main():
