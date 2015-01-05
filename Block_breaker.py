@@ -1,4 +1,4 @@
-import sys, pygame ,os
+import sys, pygame ,os,time
 
 size = width, height = 500, 500
 
@@ -129,6 +129,7 @@ class Block_breaker:
 def main():
 	while 1:
         	Block_breaker()._run()
-		main()
+                time.sleep(0.5)
+                
 
 main()
